@@ -1,0 +1,10 @@
+#compile target
+io/target/*
+common/target/*
+*.jar
+*.class
+
+#eclipse files
+.classpath
+.settings
+.project
