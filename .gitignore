@@ -1,6 +1,7 @@
 #compile target
 io/target/*
 common/target/*
+net/target/*
 *.jar
 *.class
 
