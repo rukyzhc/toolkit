@@ -1,4 +1,4 @@
-package net.zhanghc.stat;
+package net.zhanghc.toolkit.stat;
 
 public class Value<K> extends ComputableMap<K, Double> {
 

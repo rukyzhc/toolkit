@@ -1,4 +1,4 @@
-package net.zhanghc.util;
+package net.zhanghc.toolkit.util;
 
 public class Progress {
 	int count = 0;

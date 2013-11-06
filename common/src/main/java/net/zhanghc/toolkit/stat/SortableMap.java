@@ -1,4 +1,4 @@
-package net.zhanghc.stat;
+package net.zhanghc.toolkit.stat;
 
 import java.util.ArrayList;
 import java.util.Collections;

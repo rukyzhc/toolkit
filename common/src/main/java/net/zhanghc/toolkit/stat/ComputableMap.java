@@ -1,4 +1,4 @@
-package net.zhanghc.stat;
+package net.zhanghc.toolkit.stat;
 
 public abstract class ComputableMap<K, V extends Comparable<V>> extends SortableMap<K, V> {
 

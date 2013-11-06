@@ -1,4 +1,4 @@
-package net.zhanghc.io;
+package net.zhanghc.toolkit.io;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
