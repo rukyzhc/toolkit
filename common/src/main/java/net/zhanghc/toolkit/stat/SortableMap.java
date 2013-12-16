@@ -1,5 +1,6 @@
 package net.zhanghc.toolkit.stat;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -10,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
+import net.zhanghc.toolkit.io.QuickFileWriter;
 
 public abstract class SortableMap<K, V extends Comparable<V>> implements Sortable<K, V>, Iterable<Map.Entry<K, V>> {
 	HashMap<K, V> map = new HashMap<K, V>();
@@ -93,5 +96,17 @@ public abstract class SortableMap<K, V extends Comparable<V>> implements Sortabl
 	}
 
 	protected abstract V zero();
+	
+	public void merge(SortableMap<K, V> collections) {
+		map.putAll(collections.map);
+	}
+	
+	public void export(String target, boolean sorted) throws IOException {
+		QuickFileWriter qw = new QuickFileWriter(target, "utf-8");
+		for(Map.Entry<K, V> entry : (sorted ? sortedValues(true) : map.entrySet())) {
+			qw.printfln("%s\t%s", entry.getKey().toString(), entry.getValue().toString());
+		}
+		qw.close();
+	}
 
 }
