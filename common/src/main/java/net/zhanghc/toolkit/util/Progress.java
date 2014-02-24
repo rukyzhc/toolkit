@@ -9,6 +9,8 @@ public class Progress {
 	public Progress(int total, int lap) {
 		this.total = total;
 		this.lap = lap;
+		
+		start();
 	}
 	
 	public void process() {
