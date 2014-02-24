@@ -2,6 +2,8 @@ package net.zhanghc.toolkit.stat;
 
 import java.util.Collection;
 
+import net.zhanghc.toolkit.collections.ComputableMap;
+
 /**
  * 
  * Utility that helps to record count for each key.<br/>
