@@ -9,8 +9,6 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.xml.sax.InputSource;
-
 public class XPathExtractor {
 	
 	@SuppressWarnings("rawtypes")
