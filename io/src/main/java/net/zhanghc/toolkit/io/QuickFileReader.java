@@ -8,6 +8,14 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 
+/**
+ * 
+ * @deprecated <br/>
+ * See {@link EasyFileReader}
+ * 
+ * @author zhanghc
+ *
+ */
 public class QuickFileReader extends BufferedReader {
 
 	public QuickFileReader(Reader r) {

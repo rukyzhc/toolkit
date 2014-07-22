@@ -8,6 +8,14 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
+/**
+ * 
+ * @deprecated
+ * See {@link EasyFileWriter}
+ * 
+ * @author zhanghc
+ *
+ */
 public class QuickFileWriter extends BufferedWriter {
 
 	public QuickFileWriter(Writer w) {
