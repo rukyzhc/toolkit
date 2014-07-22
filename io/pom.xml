@@ -10,6 +10,14 @@
 	
 	<artifactId>io</artifactId>
 	<version>0.2</version>
+	
+	<dependencies>
+		<dependency>
+			<groupId>net.zhanghc</groupId>
+			<artifactId>common</artifactId>
+			<version>0.1</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>

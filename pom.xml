@@ -35,11 +35,6 @@
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 		</dependency>
-		<dependency>
-			<groupId>net.zhanghc</groupId>
-			<artifactId>common</artifactId>
-			<version>0.1</version>
-		</dependency>
 	</dependencies>
 
 	<build>
