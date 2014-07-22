@@ -7,12 +7,4 @@
 		<version>0.1</version>
 	</parent>
 	<artifactId>common</artifactId>
-
-	<dependencies>
-		<dependency>
-			<groupId>net.zhanghc</groupId>
-			<artifactId>io</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
 </project>
