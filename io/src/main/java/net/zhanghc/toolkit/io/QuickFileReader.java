@@ -10,7 +10,7 @@ import java.io.UnsupportedEncodingException;
 
 /**
  * 
- * @deprecated <br/>
+ * @deprecated
  * See {@link EasyFileReader}
  * 
  * @author zhanghc

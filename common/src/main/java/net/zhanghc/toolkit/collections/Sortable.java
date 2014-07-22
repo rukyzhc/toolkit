@@ -10,14 +10,14 @@ public interface Sortable<K, V extends Comparable<V>> {
 
 	/**
 	 * 
-	 * Reset this utility, while all values and elements would lost. <br/>
+	 * Reset this utility, while all values and elements would lost. 
 	 * 
 	 */
 	public void reset();
 	
 	/**
 	 * 
-	 * Get count related to the given 'key'. <br/>
+	 * Get count related to the given 'key'. 
 	 * 
 	 * @param elem the given element.
 	 * @return count of 'key' or 0 if 'key' has never been involved.
@@ -26,8 +26,8 @@ public interface Sortable<K, V extends Comparable<V>> {
 	
 	/**
 	 * 
-	 * Return a list of all entries sorted by the count.<br/>
-	 * 'descending' specifies sorting descendingly or ascendingly.<br/>
+	 * Return a list of all entries sorted by the count, where
+	 * 'descending' specifies sorting descendingly or ascendingly.
 	 * 
 	 * @param descending sorting order.
 	 * @return a sorted list with specific order. 
@@ -36,7 +36,7 @@ public interface Sortable<K, V extends Comparable<V>> {
 
 	/**
 	 * 
-	 * Get set of all keys. <br/>
+	 * Get set of all keys. 
 	 * 
 	 * @return set of all keys.
 	 */
@@ -54,7 +54,7 @@ public interface Sortable<K, V extends Comparable<V>> {
 
 	/**
 	 * 
-	 * Check whether 'key' has been involved.<br/>
+	 * Check whether 'key' has been involved.
 	 * 
 	 * @param key the given 'key'
 	 * @return whether given 'key' has been involved.
