@@ -3,6 +3,7 @@ package net.zhanghc.toolkit.io;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Collection;
 import java.util.function.Consumer;
 
 import com.google.gson.Gson;
@@ -52,6 +53,16 @@ public class JsonFileReader<T> extends EasyFileReader {
 		T t = null;
 		while((t = jr.readJson()) != null) {
 			processor.accept(t);
+		}
+		jr.close();
+	}
+	
+	public static <T> void load(String file, String charset, 
+			Collection<T> target, Class<T> type) throws FileNotFoundException, IOException {
+		JsonFileReader<T> jr = new JsonFileReader<T>(file, charset, type);
+		T t = null;
+		while((t = jr.readJson()) != null) {
+			target.add(t);
 		}
 		jr.close();
 	}

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
+import java.util.Collection;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -70,6 +71,26 @@ public class EasyFileReader extends BufferedReader {
 		String line = null;
 		while((line = er.readLine()) != null) {
 			processor.accept(line);
+		}
+		er.close();
+	}
+	
+	/**
+	 * 
+	 * Load all lines from the given file to the target collection.
+	 * 
+	 * @param file
+	 * @param charset
+	 * @param target
+	 * @throws FileNotFoundException
+	 * @throws IOException 
+	 * 
+	 */
+	public static void load(String file, String charset, Collection<String> target) throws FileNotFoundException, IOException {
+		EasyFileReader er = new EasyFileReader(file, charset);
+		String line = null;
+		while((line = er.readLine()) != null) {
+			target.add(line);
 		}
 		er.close();
 	}

@@ -25,6 +25,10 @@ public class KeyIndex<T> {
 		}
 	}
 	
+	public int size() {
+		return index.size();
+	}
+	
 	public int index(T key) {
 		if(map.containsKey(key)) {
 			return map.get(key);

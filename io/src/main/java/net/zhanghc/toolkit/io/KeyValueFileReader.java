@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
+import java.util.Map;
 import java.util.function.Function;
 
 import net.zhanghc.toolkit.lang.KeyValue;
@@ -40,6 +41,27 @@ public class KeyValueFileReader<K, V> extends EasyFileReader {
 	public static char getSplitChar() {
 		return SplitChar;
 	}
+	
+	/**
+	 * 
+	 * Load key-value pairs into given map.
+	 * 
+	 * @param file
+	 * @param charset
+	 * @param value
+	 * @param convertor
+	 * @throws IOException
+	 * @throws FileNotFoundException
+	 */
+	public static <K, V> void load(String file, String charset, Map<K, V> value, Function<String, KeyValue<K, V>> convertor) throws IOException, FileNotFoundException {
+		EasyFileReader er = new EasyFileReader(file, charset);
+		String line = null;
+		while((line = er.readLine()) != null) {
+			KeyValue<K, V> kv = convertor.apply(line);
+			value.put(kv.getKey(), kv.getValue());
+		}
+		er.close();
+	}
 
 	public void setConvertor(Function<String, KeyValue<K, V>> convertor) {
 		this.convertor = convertor;
@@ -63,6 +85,15 @@ public class KeyValueFileReader<K, V> extends EasyFileReader {
 		public StringDoubleFileReader(String file, String charset)
 				throws UnsupportedEncodingException, FileNotFoundException {
 			super(file, charset, (l) -> {
+				int p = l.indexOf(SplitChar);
+				return new KeyValue<String, Double>(
+						l.substring(0, p), 
+						Double.parseDouble(l.substring(p + 1)));
+			});
+		}
+		
+		public static void load(String file, String charset, Map<String, Double> value) throws FileNotFoundException, IOException {
+			KeyValueFileReader.load(file, charset, value, (l) -> {
 				int p = l.indexOf(SplitChar);
 				return new KeyValue<String, Double>(
 						l.substring(0, p), 
@@ -93,5 +124,13 @@ public class KeyValueFileReader<K, V> extends EasyFileReader {
 			});
 		}
 
+		public static void load(String file, String charset, Map<String, Integer> value) throws FileNotFoundException, IOException {
+			KeyValueFileReader.load(file, charset, value, (l) -> {
+				int p = l.indexOf(SplitChar);
+				return new KeyValue<String, Integer>(
+						l.substring(0, p), 
+						Integer.parseInt(l.substring(p + 1)));
+			});
+		}
 	}
 }
