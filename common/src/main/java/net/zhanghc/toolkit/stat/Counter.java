@@ -14,6 +14,7 @@ import net.zhanghc.toolkit.collections.ComputableMap;
  *
  */
 public final class Counter<K> extends ComputableMap<K, Integer> {
+	private static final long serialVersionUID = -2372067044639005394L;
 	private int total = 0;
 
 	/**
@@ -39,6 +40,19 @@ public final class Counter<K> extends ComputableMap<K, Integer> {
 	public void count(K key, int n) {
 		add(key, n);
 		total += n;
+	}
+	
+	public double entropy() {
+		if(total == 0) return Double.NaN;
+		
+		double e = 0.0;
+		double l2 = Math.log(2);
+		for(Integer v : values()) {
+			if(v == null) continue;
+			double p = (double)v / total;
+			e += (- p * Math.log(p) / l2);
+		}
+		return e;
 	}
 
 	/**

@@ -75,6 +75,17 @@ public class EasyFileReader extends BufferedReader {
 		er.close();
 	}
 	
+	public static void process(String file, String charset, Process<String> processor, int maxline)
+			throws FileNotFoundException, IOException {
+		EasyFileReader er = new EasyFileReader(file, charset);
+		String line = null;
+		int i = 0;
+		while((line = er.readLine()) != null && (maxline < 0 || i++ < maxline)) {
+			processor.accept(line, i);
+		}
+		er.close();
+	}
+	
 	/**
 	 * 
 	 * Load all lines from the given file to the target collection.
@@ -93,6 +104,10 @@ public class EasyFileReader extends BufferedReader {
 			target.add(line);
 		}
 		er.close();
+	}
+	
+	public static interface Process<T> {
+		public void accept(T t, int no);
 	}
 
 }
